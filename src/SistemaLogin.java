@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class SistemaLogin {
@@ -6,6 +10,7 @@ public class SistemaLogin {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        carregarDados();
 
         int opcao;
         do {
@@ -28,6 +33,7 @@ public class SistemaLogin {
                     autenticarUsuario();
                     break;
                 case 6:
+                    salvarDados();
                     System.out.println("Obrigado por usar o Sistema de Login. Até a próxima!");
                     break;
 
@@ -39,7 +45,7 @@ public class SistemaLogin {
 
     }
 
-    static void cadastrarUsuario() {
+    private static void cadastrarUsuario() {
         Scanner sc = new Scanner(System.in);
         System.out.println("        *** CADASTRO DE USUÁRIO ***         ");
         System.out.println("---------------------------------------------");
@@ -47,6 +53,7 @@ public class SistemaLogin {
         String nome = sc.next();
         System.out.println("Data de Nascimento (formato: dd/MM/yyyy): ");
         String dataNasc = sc.next();
+        sc.next();
         System.out.println("CPF (formato: 000.000.000-00): ");
         String cpf = sc.next();
         System.out.print("Nome de usuário: ");
@@ -77,7 +84,7 @@ public class SistemaLogin {
         String senha = sc.next();
 
         for (int i = 0; i < usuarios.length; i++) {
-            if (usuarios[i][0] != null && usuarios[i][0].equals(user) && usuarios[i][1].equals(senha)) {
+            if (usuarios[i][3] != null && usuarios[i][3].equals(user) && usuarios[i][4].equals(senha)) {
                 System.out.println("Autenticação bem-sucedida.");
                 return;
 
@@ -85,5 +92,30 @@ public class SistemaLogin {
 
         }
         System.out.println("Credenciais inválidas. Autenticação falhou.");
+    }
+    private static void carregarDados() {
+        try (BufferedReader dados = new BufferedReader(new FileReader("usuarios.txt"))) {
+            String linha;
+            int i = 0;
+            while ((linha = dados.readLine()) != null) {
+                String[] partes = linha.split(", ");
+                usuarios[i][0] = partes[0];
+                usuarios[i][1] = partes[1];
+                i++;
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar dados do arquivo.");
+        }
+    }
+    private static void salvarDados() {
+        try (FileWriter arquivo = new FileWriter("usuarios.txt")) {
+            for (int i = 0; i < usuarios.length; i++) {
+                if (usuarios[i][0] != null) {
+                    arquivo.write(usuarios[i][3] + ", " + usuarios[i][4] + "\n");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar dados no arquivo.");
+        }
     }
 }
