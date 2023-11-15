@@ -1,7 +1,8 @@
 # Sistema De Login 
-Abrange operações de CRUD (Create, Read, Update, Delete).
 
-Este projeto é um simples sistema de login que visa proporcionar ao iniciante na linguagem Java:
+Este projeto é um sistema de login simples que desenvolvi como parte da minha prática em Java, com a intenção de proporcionar uma experiência enriquecedora para iniciantes na linguagem, assim como eu. Abrange operações de CRUD (Create, Read, Update, Delete).
+
+Visa proporcionar: 
 
 #### - Lógica de Programação Prática:
 Desenvolver habilidades práticas na implementação de operações básicas como cadastro, autenticação e persistência de dados.
