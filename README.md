@@ -1,7 +1,7 @@
 # Sistema De Login 
 Abrange operações de CRUD (Create, Read, Update, Delete).
 
-Este projeto de sistema de login visa proporcionar ao iniciante na linguagem Java:
+Este projeto é um simples sistema de login que visa proporcionar ao iniciante na linguagem Java:
 
 #### - Lógica de Programação Prática:
 Desenvolver habilidades práticas na implementação de operações básicas como cadastro, autenticação e persistência de dados.
@@ -83,3 +83,39 @@ O projeto foi implementado sem utilizar Programação Orientada a Objetos.
 - Armazenamento de Dados:
 
 Os dados dos usuários são armazenados em um arquivo de texto simples.
+
+
+## Instruções de Compilação
+
+Certifique-se de ter o Java Development Kit (JDK) instalado no seu sistema.
+
+1. **Abra um terminal ou prompt de comando:**
+   - Navegue até o diretório que contém o arquivo `SistemaLogin.java` usando o comando `cd`.
+
+2. **Compile o código-fonte:**
+   - Utilize o comando `javac` ou `javac.exe` para compilar o código-fonte. Substitua `<caminho-do-arquivo>` pelo caminho completo até o arquivo `SistemaLogin.java`:
+
+     ```bash
+     javac ou java.exe <caminho-do-arquivo>/SistemaLogin.java
+     ```
+
+   Por exemplo, se você estiver no diretório correto:
+
+     ```bash
+     javac SistemaLogin.java
+     ```
+
+   Isso criará um arquivo `SistemaLogin.class` no mesmo diretório.
+
+3. **Execute o programa:**
+   - Utilize o comando `java` para executar o programa Java compilado. Certifique-se de incluir a extensão `.class` no nome do arquivo:
+
+     ```bash
+     java SistemaLogin
+     ```
+
+   Isso iniciará a execução do programa e exibirá o menu interativo no console.
+
+Certifique-se de ter permissões de escrita no diretório para salvar os dados no arquivo `usuarios.txt` durante a execução do programa.
+
+Nota: Se você estiver usando um sistema operacional diferente, os comandos podem variar um pouco. Adapte conforme necessário para o seu ambiente.
